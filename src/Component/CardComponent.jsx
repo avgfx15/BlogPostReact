@@ -1,7 +1,8 @@
 import React from 'react';
 
-const CardComponent = ({ cardItem }) => {
-  const { userId, title, body } = cardItem;
+const CardComponent = ({ cardItem, handleDelete }) => {
+  const { id, userId, title, body } = cardItem;
+
   return (
     <div className='border-2 border-black p-5 flex flex-col justify-center'>
       <h2 className=' mb-4'>
@@ -17,7 +18,10 @@ const CardComponent = ({ cardItem }) => {
         <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700'>
           Edit
         </button>
-        <button className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 ml-2'>
+        <button
+          className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 ml-2'
+          onClick={() => handleDelete(id)}
+        >
           Delete
         </button>
       </div>
