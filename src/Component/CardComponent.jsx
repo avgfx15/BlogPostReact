@@ -1,12 +1,10 @@
-import React from 'react';
-
-const CardComponent = ({ cardItem, handleDelete }) => {
-  const { id, userId, title, body } = cardItem;
+const CardComponent = ({ cardItem, handleDelete, handleEdit }) => {
+  const { id, title, body } = cardItem;
 
   return (
     <div className='border-2 border-black p-5 flex flex-col justify-center'>
       <h2 className=' mb-4'>
-        UserId :<span className='text-2xl font-bold'>{userId}</span>
+        UserId : <span className='text-2xl font-bold'>{id}</span>
       </h2>
       <h2 className='mb-4 font-bold'>
         Title : <span className='text-xl font-normal'>{title}</span>
@@ -15,7 +13,10 @@ const CardComponent = ({ cardItem, handleDelete }) => {
         Message : <span className='text-xl font-normal'>{body}</span>
       </h2>
       <div className='bottom-0 mt-auto'>
-        <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700'>
+        <button
+          className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700'
+          onClick={() => handleEdit(cardItem)}
+        >
           Edit
         </button>
         <button
